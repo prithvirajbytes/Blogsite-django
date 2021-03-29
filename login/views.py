@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import AuthenticationForm
 from .models import *
 import requests
 import random
@@ -21,7 +23,22 @@ def register(request):
 		city=request.POST['city']
 		mobile=int(request.POST.get('mobile'))
 		l=login_data.objects.create(name=name,password=password,gender=gender,email=email,description=description,city=city,mobile=mobile)
-		return render(request,"test.html",{}) 
+		return render(request,"login.html",{}) 
 
-def login(request):
-	pass
+def userLogin(request):
+    if request.method == "POST" :
+        name = request.POST.get('name')
+        password = request.POST.get('password')
+
+        user = authenticate(name=name, password=password)
+        if user :
+            if user.is_active :
+                login(request, user)
+                return HttpResponseRedirect(reverse('special'))
+            else:
+                return HttpResponse('you are not active')
+        else:
+            return HttpResponse('Your are not a member')
+
+    else:
+        return render(request, 'test.html', {})
