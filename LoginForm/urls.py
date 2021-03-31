@@ -19,6 +19,6 @@ from login.views import register, login
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^register/',register),
-    url(r'^login/',login),
+    url(r'^register/',register,name='register'),
+    url(r'^login/',login, name='login'),
 ]
