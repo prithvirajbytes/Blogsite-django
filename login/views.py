@@ -40,10 +40,10 @@ def login(request):
                 #login(user)
                 request.session['user_id'] = user.id
                 return render(request, 'test.html', {})
-            else:
-                return HttpResponse('Authentication Error')
+            #else:
+                #return HttpResponse('Authentication Error')
         else:
-            return HttpResponse('Welcome')
+            return HttpResponse('Authentication Error')
 
     else:
         return render(request, 'login.html', {})
