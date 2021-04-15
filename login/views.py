@@ -54,8 +54,8 @@ def loginuser(request):
         return render(request, 'login.html', {})
 
 
-	all_post = Post.objects.all()
+	#all_post = Post.objects.all()
 
-	my_post = Post.objects.filter(author_id=user.id)
+	#my_post = Post.objects.filter(author_id=user.id)
 
 	#return render(request,'test.html,{'all_post':all_post,'my_post':my_post})
