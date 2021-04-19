@@ -28,16 +28,27 @@
 </head>
 <body>
 
+<h1>Successful Login, Welcome</h1>
+<br>
+<br>
+<br>
+
 <div class="div1">All Post</div>
-<button type="button" onclick="alert('Hello world!')">Click Me!</button>
+<a type="button" href="{% url 'allpage' %}">Click Me!</a>
 <br>
 <br>
 <div class="div2">Create Post</div>
-<button type="button" onclick="alert('Hello world!')">Click Me!</button>
+<a type="button" href="">Click Me!</a>
 <br>
 <br>
 <div class="div3">My Post</div>
-<button type="button" onclick="alert('Hello world!')">Click Me!</button>
+<a type="button" onclick="demo()">Click Me!</a>
+<script>
+  function demo(){
+    window.location.href = "{% url 'allpage' %}"
+  }
+</script>
+
 
 </body>
 </html>

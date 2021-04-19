@@ -46,12 +46,19 @@ def loginuser(request):
                 request.session['user_id'] = user.id
                 return render(request, 'test.html', {})
             else:
-                return HttpResponse('Authentication Error')
+                return HttpResponse('Welcome')
         else:
-            return HttpResponse('Welcome')
+            return HttpResponse('Authentication Error')
 
     else:
         return render(request, 'login.html', {})
+
+
+def allpage(request):
+	if request.method=='GET':
+		return render(request,"allpost.html",{})
+		
+
 
 
 	#all_post = Post.objects.all()
