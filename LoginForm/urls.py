@@ -17,7 +17,7 @@ Including another URLconf
 from django.urls import path
 from django.conf.urls import url
 from django.contrib import admin
-from login.views import register, loginuser, home, allpage
+from login.views import register, loginuser, home, allpage, createpage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +25,5 @@ urlpatterns = [
     path('register/',register,name='register'),
     path('login/',loginuser, name='login'),
     path('allpage/',allpage, name='allpage'),
+    path('createpage/',createpage, name='createpage'),
 ]

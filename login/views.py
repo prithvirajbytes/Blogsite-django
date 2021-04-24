@@ -54,6 +54,24 @@ def loginuser(request):
         return render(request, 'login.html', {})
 
 
+def createpage(request):
+	if request.method=='POST':
+		#print(request.user.id)
+		userid = request.session['user_id']
+		title=str(request.POST.get('title'))
+		body=str(request.POST.get('body'))
+		author=str(request.POST.get('author'))
+		s=blog_data(title=title,body=body,author_id=userid)
+		s.save()
+		#user1 = User1.objects.create_user(title=title, body=body,author=author)
+		#user1.save()
+		return render(request,"test.html",{}) 
+	elif request.method == "GET":
+		return render(request,"createpost.html",{})
+
+
+
+
 def allpage(request):
 	if request.method=='GET':
 		return render(request,"allpost.html",{})

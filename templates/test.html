@@ -38,14 +38,14 @@
 <br>
 <br>
 <div class="div2">Create Post</div>
-<a type="button" href="">Click Me!</a>
+<a type="button" href="{% url 'createpage' %}">Click Me!</a>
 <br>
 <br>
 <div class="div3">My Post</div>
 <a type="button" onclick="demo()">Click Me!</a>
 <script>
   function demo(){
-    window.location.href = "{% url 'allpage' %}"
+    window.location.href = "{% url 'createpage' %}"
   }
 </script>
 

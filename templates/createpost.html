@@ -1,0 +1,28 @@
+<!DOCTYPE HTML> 
+<html> 
+<head> 
+<title>Sign-In</title> 
+</head> 
+<center>
+<body id="body-color"> 
+<div id="Sign-In"> 
+<fieldset style="width:30%">
+<legend>
+Blog Details
+</legend> 
+<form method="POST" action='{% url "createpage" %}'> 
+Title  <br>    {% csrf_token %}
+<input type="text" name="title" size="40"><br> 
+Body <br><input type="text" name="body" size="180"><br> 
+
+
+
+<br>
+<br>
+<input id="button" type="submit" name="submit" value="Create Post"> 
+</form> 
+</fieldset> 
+</div> 
+</body> 
+</center>
+</html>
