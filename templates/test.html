@@ -42,7 +42,7 @@
 <br>
 <br>
 <div class="div3">My Post</div>
-<a type="button" onclick="demo()">Click Me!</a>
+<a type="button" href="{% url 'mypage' %}">Click Me!</a>
 <script>
   function demo(){
     window.location.href = "{% url 'createpage' %}"

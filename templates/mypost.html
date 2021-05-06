@@ -5,13 +5,15 @@
     <title>My Posts</title>
 </head>
 <body>
-    <h1>All Blogs Here</h1>
+    <h1>My Blogs Here</h1>
+    {% for blog_data in my_post %}
     <p>
         {{ blog_data.title}}
         {{ blog_data.body }}
         {{ blog_data.author }}
         {{ blog_data.author_id }}
     </p>
+    {% endfor %}
      <a href="/">logout</a>
 </body>
 </html>

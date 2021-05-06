@@ -73,11 +73,14 @@ def createpage(request):
 
 
 def allpage(request):
-	if request.method=='GET':
 		all_post = blog_data.objects.all() # Collect all records from table 
+		#print(all_post)
 		return render(request,'allpost.html',{'all_post':all_post})
 
 def mypage(request):
 	if request.method=='GET':
-		my_post = Post.objects.filter(author_id=user.id)
-		return render(request,'test.html,{'my_post':my_post})
+		userid = request.session['user_id']
+		my_post = blog_data.objects.filter(author_id = userid)
+		return render(request,'mypost.html',{'my_post':my_post})
+
+		

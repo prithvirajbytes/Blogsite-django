@@ -18,4 +18,8 @@ class blog_data(models.Model):
 	body=models.CharField(max_length=2000,blank=False,null=False)
 	author = models.ForeignKey(User,on_delete=models.CASCADE)
 
+
+	objects = models.Manager()
+	#added_by = models.ForeignKey(author)
+
 	
