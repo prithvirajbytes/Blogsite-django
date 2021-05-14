@@ -17,7 +17,7 @@ Including another URLconf
 from django.urls import path
 from django.conf.urls import url
 from django.contrib import admin
-from login.views import register, loginuser, home, allpage, createpage, mypage
+from login.views import register, loginuser, home, allpage, createpage, mypage, logout, deletepost, edit
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +27,7 @@ urlpatterns = [
     path('allpage/',allpage, name='allpage'),
     path('createpage/',createpage, name='createpage'),
     path('mypage/',mypage, name='mypage'),
+    path('logout/',logout, name='logout'),
+    path('mypage/deletepost/<int:data>',deletepost, name='deletepost'),
+    path('mypage/edit/<int:data>',edit, name='edit'),
 ]

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
@@ -83,4 +83,22 @@ def mypage(request):
 		my_post = blog_data.objects.filter(author_id = userid)
 		return render(request,'mypost.html',{'my_post':my_post})
 
-		
+def logout(request):
+	if request.method=='GET':
+		return HttpResponseRedirect("/")
+
+def deletepost(request, data):
+	item = blog_data.objects.get(id = data)
+	if request.method=='GET':
+		userid = request.session['user_id']
+		context={'item':item}
+		return render(request, 'delete.html', context)
+	elif request.method == 'POST':
+		item.delete()
+		return redirect('mypage')
+
+	
+def edit(request, data):
+	context = blog_data.objects.get(id=int(data))
+
+	return render(request, 'edit.html', {'edit_data':context})

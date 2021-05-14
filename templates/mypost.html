@@ -13,7 +13,9 @@
         {{ blog_data.author }}
         {{ blog_data.author_id }}
     </p>
+    <td><a href="{% url 'edit' blog_data.id %}">Edit</a></td>
+    <td><a href="{% url 'deletepost' blog_data.id %}">Delete</a></td>
+
     {% endfor %}
-     <a href="/">logout</a>
 </body>
 </html>

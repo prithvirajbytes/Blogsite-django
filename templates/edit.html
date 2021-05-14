@@ -1,0 +1,13 @@
+<h3> Update Task </h3>
+
+<form method="POST"> 
+	Title  <br>    {% csrf_token %}
+	<input type="text" name="title" size="40" value="{{edit_data.title}}"><br> 
+	Body <br><input type="text" name="body" size="180" value="{{edit_data.body}}"><br> 
+	
+	
+	
+	<br>
+	<br>
+	<input id="button" type="submit" name="submit" value="Edit Post"> 
+	</form> 
